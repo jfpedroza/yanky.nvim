@@ -226,7 +226,11 @@ function yanky.on_yank()
   local entry = utils.get_register_info(vim.v.event.regname)
   entry.filetype = vim.bo.filetype
 
-  yanky.history.push(entry)
+  local filter = yanky.config.options.ring.filter
+
+  if not filter or filter(entry) then
+    yanky.history.push(entry)
+  end
 
   preserve_cursor.on_yank()
 end

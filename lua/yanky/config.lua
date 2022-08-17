@@ -8,6 +8,7 @@ local default_values = {
     storage = "shada",
     sync_with_numbered_registers = true,
     cancel_event = "update",
+    filter = nil,
   },
   system_clipboard = {
     sync_with_ring = true,
